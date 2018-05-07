@@ -15,16 +15,19 @@ app.post('/errors', (req, res) => {
 app.post('/bot', (req, res) => {
     console.log("Message recieved");
     const memory = req.body.conversation.memory;
+    console.log(memory);
     const location = memory.location;
-
+    const date = memory.datetime;
     const city = location.raw;
-    console.log(city);
-    return getWeather(city).then((text) => res.json({
+
+    return getWeather(city, date).then((text) => res.json({
         replies: text,
         conversation: {
-            memory: { key: 'value' }
+            memory: {}
         }
     }));
-});
+    location = null;
+    date = null;
+})
 
 app.listen(config.PORT, () => console.log(`App started on port ${config.PORT}`));

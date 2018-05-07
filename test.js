@@ -2,6 +2,7 @@
 
 module.exports.getRandomInt = getRandomInt;
 module.exports.Tree = Tree;
+module.exports.getMaxValue = getMaxValue;
 
 function getRandomInt(max){
 	return (Math.floor(Math.random() * Math.floor(max)));
@@ -11,6 +12,7 @@ function getValue(){
 	return (this.value);
 }
 
+// Append a new node to the tree randomly to the left or the right
 function appendNode(racine, node){
 	var i = getRandomInt(2);
 	if (node == null)
@@ -30,7 +32,7 @@ function appendNode(racine, node){
 	return (node.getValue());
 }
 
-// Show
+// Show Node and child nodes
 function showNode(){
 	if (this.left != null){
 		console.log("left of " + this.value + " is " + this.left.getValue())
@@ -42,9 +44,10 @@ function showNode(){
 	}
 }
 
+// Show Tree
 function showTree(){
 	if (this.root){
-		console.log("[" + this.root.getValue() + "]");
+		console.log("First value : [" + this.root.getValue() + "]");
 		this.root.show();
 	}
 }
@@ -57,9 +60,9 @@ function Node(){
 	this.appendNode = appendNode;
 	this.show = showNode;
 	this.getValue = getValue;
-
 }
 
+// Create new Tree to the given size
 function Tree(size){
 	var	i = 1;
 	var value = 0;
@@ -80,7 +83,9 @@ function Tree(size){
 	}
 }
 
-module.exports.getMaxValue = function getMaxValue(tree){
+
+// Search and return the max value of a given tree
+function getMaxValue(tree){
 	var max = 0;
 	var tmp;
 
