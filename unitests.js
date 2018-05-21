@@ -18,7 +18,7 @@ while (i < 1000){
 	}
 	else
 		console.log("\n----------KO----------");
-	newTree.show();
+//	newTree.show();
 	console.log("Tree size : " + size);
 	console.log("Greater value added to tree is :\t" + newTree.max);
 	console.log("Max value of tree is :\t\t\t" + max);
